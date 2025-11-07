@@ -3,61 +3,108 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shaan — Profile</title>
+  <title>Shaan — Profile & Subjects</title>
   <style>
-    :root{--bg:#f6f8fb;--card:#ffffff;--accent:#0b74de;--muted:#6b7280}
-    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    body{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--bg),#eef3fb);padding:24px}
-    .card{background:var(--card);max-width:520px;width:100%;border-radius:12px;box-shadow:0 8px 30px rgba(12,38,63,0.08);padding:28px}
-    header{display:flex;align-items:center;gap:16px}
-    .avatar{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#5fb3ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
-    h1{margin:0;font-size:22px}
-    p.lead{margin:6px 0 18px;color:var(--muted)}
-    dl{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0}
-    dt{font-size:13px;color:var(--muted)}
-    dd{margin:0;font-weight:600;font-size:16px}
-    footer{margin-top:18px;color:var(--muted);font-size:13px}
-    @media (max-width:420px){.card{padding:18px}.avatar{width:56px;height:56px}}
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      padding: 30px 40px;
+      text-align: center;
+      width: 400px;
+      transition: all 0.3s;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #0078d7;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    h2 {
+      margin: 10px 0 5px;
+    }
+
+    p {
+      margin: 6px 0;
+      color: #444;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #0078d7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .subjects {
+      margin-top: 20px;
+      display: none;
+      text-align: left;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 25px;
+      color: #333;
+    }
   </style>
 </head>
 <body>
-  <article class="card" aria-labelledby="profile-title">
-    <header>
-      <div class="avatar" aria-hidden="true">S</div>
-      <div>
-        <h1 id="profile-title">Shaan</h1>
-        <p class="lead">Student profile summary</p>
-      </div>
-    </header>
+  <div class="container">
+    <img src="yourphoto.jpg" alt="Shaan's Photo">
+    <h2>Shaan</h2>
+    <p><strong>Roll No:</strong> 17</p>
+    <p><strong>Semester:</strong> 5</p>
+    <p><strong>CGPA:</strong> 7.2</p>
 
-    <section aria-labelledby="info-heading" style="margin-top:18px">
-      <h2 id="info-heading" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Profile information</h2>
-      <dl>
-        <div>
-          <dt>Name</dt>
-          <dd>Shaan</dd>
-        </div>
+    <button onclick="toggleSubjects()">View Semester Subjects</button>
 
-        <div>
-          <dt>Roll No.</dt>
-          <dd>17</dd>
-        </div>
+    <div class="subjects" id="subjects">
+      <h3>Semester 5 Subjects</h3>
+      <ul>
+        <li>Software Testing</li>
+        <li>Computer Networks</li>
+        <li>Operating Systems</li>
+        <li>Database Management Systems</li>
+        <li>Web Technologies</li>
+      </ul>
+    </div>
+  </div>
 
-        <div>
-          <dt>Semester</dt>
-          <dd>5</dd>
-        </div>
-
-        <div>
-          <dt>CGPA</dt>
-          <dd>7.2</dd>
-        </div>
-      </dl>
-    </section>
-
-    <footer>
-      <div>Quick actions: <small style="color:var(--muted)">copy the file contents or save this as <code>shaan_profile.html</code></small></div>
-    </footer>
-  </article>
+  <script>
+    function toggleSubjects() {
+      const subjects = document.getElementById("subjects");
+      subjects.style.display = (subjects.style.display === "none" || subjects.style.display === "") ? "block" : "none";
+    }
+  </script>
 </body>
 </html>
